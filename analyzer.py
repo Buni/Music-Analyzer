@@ -28,11 +28,11 @@ import sys
 class Analyzer(object):
 	def __init__(self,filePath):
 		print 'analyzing',filePath
-		if os.path.splitext(filePath)[-1] == '.mp3':
+		if os.path.splitext(filePath)[-1] == '.wav':
 			self.segments = FE.segmentData(filePath)
 			self.meta = ME.metaData(filePath)
 		else:
-			raise TypeError('Not a .mp3!')
+			raise TypeError('Not a .wav!')
 
 def main():
 	song = Analyzer(sys.argv[1])

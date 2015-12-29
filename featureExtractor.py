@@ -6,7 +6,7 @@ Use by calling Segement(filePath)
 
 import numpy as np 
 import scipy.io.wavfile as sciowav
-from pylab import specgram
+from matplotlib.mlab import specgram
 import sys
 import converter
 import sh
@@ -223,7 +223,7 @@ def segmentData(filePath):
 	Fs = audio[0]
 	npA = audio[1][:,0]
 	length = float(npA.shape[0])/Fs
-	powerData, freqs, bins, im = specgram(npA, NFFT=2048, Fs=Fs, noverlap=1536)
+	powerData, freqs, bins = specgram(npA, NFFT=2048, Fs=Fs, noverlap=1536)
 	powerData = specGramAdjust(powerData,freqs)
 	maskedData = tempMask(powerData,freqs,length,bins)
 	segments = getSegments(maskedData,freqs,length,bins)

@@ -12,5 +12,5 @@ def Convert(filePath,format):
 	newPath = '.'.join(os.path.splitext(filePath)[:-1]).strip()+format
 	if os.path.exists(newPath):
 		Delete(newPath)
-	sh.avconv('-i',filePath,newPath)
+	sh.avconvert('-i',filePath,newPath)
 	return newPath
