@@ -45,5 +45,3 @@ def main():
 	print segment.pitches
 	print segment.timbre
 
-if __name__ == "__main__":
-	 main()
