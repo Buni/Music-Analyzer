@@ -221,7 +221,7 @@ def segmentData(filePath):
 	filePath,converted = handleConversion(filePath)
 	audio = sciowav.read(filePath)
 	Fs = audio[0]
-	npA = audio[1][:,0]
+	npA = audio[1][:0]
 	length = float(npA.shape[0])/Fs
 	powerData, freqs, bins = specgram(npA, NFFT=2048, Fs=Fs, noverlap=1536)
 	powerData = specGramAdjust(powerData,freqs)
